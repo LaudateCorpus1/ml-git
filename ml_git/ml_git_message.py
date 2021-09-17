@@ -180,7 +180,6 @@ output_messages = {
     'ERROR_ENTITY_NOT_FOUND': 'Entity type [%s] not found in your configuration file.',
     'ERROR_REMOTE_NOT_FOUND': 'Remote URL not found.',
     'ERROR_MISSING_MUTABILITY': 'Missing option "--mutability".  Choose from:\n\tstrict,\n\tflexible,\n\tmutable.',
-    'ERROR_MISSING_EXPORT_PATH': 'Missing option "--export-path".  The argument `export_path` is required if `export-type` is used.',
     'ERROR_INVALID_TYPE_OF_FILE': 'This type of file is not supported, use one of the following types: %s',
     'ERROR_SPEC_WITHOUT_MUTABILITY': 'You need to define a mutability type when creating a new entity. '
                                      'Your spec should look something like this:' + doc,
