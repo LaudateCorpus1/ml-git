@@ -139,7 +139,6 @@ output_messages = {
     'INFO_NONE_ENTITY_MANAGED': 'You don\'t have any entity being managed.',
     'INFO_ENTITY_NAME_EXISTS': 'An entity with that name already exists.',
     'INFO_EXCLUSIVE_IMPORT_ARGUMENT': 'The argument `import` is mutually exclusive with argument',
-    'INFO_EXCLUSIVE_CREDENTIALS_PATH_ARGUMENT': 'The argument `credentials_path` is required if `import-url` is used.',
     'INFO_UNZIPPING_FILES': 'Unzipping files',
     'INFO_CANNOT_ADD_NEW_DATA_AN_ENTITY': 'You cannot add new data to an entity that is based on a checkout with the --sampling option.',
     'INFO_INITIALIZING_PROJECT': 'Initializing the project with global settings',
@@ -316,6 +315,7 @@ output_messages = {
     'ERROR_FOUND': 'ERROR FOUND: %s - %s',
     'ERROR_PUSH_CONFIG': 'Could not push configuration file. ERROR: %s',
     'ERROR_FIND_FILE_PATH_LOCATION': 'A complete log of this run can be found in: %s',
+    'ERROR_REQUIRED_OPTION_MISSING': 'The option `{}` is required if `{}` is used.',
 
     'WARN_CORRUPTED_CANNOT_BE_ADD': 'The following files cannot be added because they are corrupted:',
     'WARN_HAS_CONFIGURED_REMOTE': 'YOU ALREADY HAS A CONFIGURED REMOTE. All data stored in this repository will be sent to the new one on the first push.',
@@ -328,5 +328,7 @@ output_messages = {
     'WARN_NOT_EXIST_FOR_RELATED_DOWNLOAD': 'Repository: the %s does not exist for related download.',
     'WARN_NOT_FOUND': '[%s] Not found!',
     'WARN_FILE_EXISTS_IN_REPOSITORY': 'The file %s already exists in the repository. If you commit, the file will be overwritten.',
-    'WARN_REPOSITORY_NOT_FOUND_FOR_ENTITY': 'No repositories found for %s, verify your configurations!'
+    'WARN_REPOSITORY_NOT_FOUND_FOR_ENTITY': 'No repositories found for %s, verify your configurations!',
+    'WARN_USELESS_OPTION': 'The option `{}` only is required if `{}` is used. The command will continue without a '
+                           'problem, but the `{}` will not be used. '
 }
