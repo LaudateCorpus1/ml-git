@@ -278,6 +278,6 @@ class CreateAcceptanceTests(unittest.TestCase):
         self.assertIn(output_messages['INFO_INITIALIZED_PROJECT_IN'] % self.tmp_dir, check_output(MLGIT_INIT))
         self.assertIn(output_messages['ERROR_REQUIRED_OPTION_MISSING'].format('credentials_path', 'import-url'),
                       check_output(MLGIT_CREATE % (DATASETS, DATASET_NAME) + ' --import-url=test'
-                                                                             ' --category=imgs --mutability=' + STRICT))
+                                                                             ' --categories=imgs --mutability=' + STRICT))
         folder_data = os.path.join(self.tmp_dir, DATASETS, DATASET_NAME, 'data')
         self.assertFalse(os.path.exists(folder_data))
