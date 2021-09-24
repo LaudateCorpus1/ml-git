@@ -274,7 +274,16 @@ class CreateAcceptanceTests(unittest.TestCase):
             self.assertEqual(spec_file[MODEL_SPEC_KEY]['categories'], ['cat1', 'cat2', 'cat3', 'cat4'])
 
     @pytest.mark.usefixtures('switch_to_tmp_dir')
-    def test_20_create_with_import_url_and_without_credentials_path(self):
+    def test_20_create_with_invalid_version_number(self):
+        entity_type = DATASETS
+        self.assertIn(output_messages['INFO_INITIALIZED_PROJECT_IN'] % self.tmp_dir, check_output(MLGIT_INIT))
+        result = check_output(MLGIT_CREATE % (entity_type, entity_type + '-ex') + ' --version=-2 --categories=imgs'
+                              + ' --mutability=' + STRICT)
+        expected_error_message = '-2 is not in the valid range of 0 to 99999999.'
+        self.assertIn(expected_error_message, result)
+        
+    @pytest.mark.usefixtures('switch_to_tmp_dir')
+    def test_21_create_with_import_url_and_without_credentials_path(self):
         self.assertIn(output_messages['INFO_INITIALIZED_PROJECT_IN'] % self.tmp_dir, check_output(MLGIT_INIT))
         self.assertIn(output_messages['ERROR_REQUIRED_OPTION_MISSING'].format('credentials_path', 'import-url'),
                       check_output(MLGIT_CREATE % (DATASETS, DATASET_NAME) + ' --import-url=test'
@@ -283,10 +292,11 @@ class CreateAcceptanceTests(unittest.TestCase):
         self.assertFalse(os.path.exists(folder_data))
 
     @pytest.mark.usefixtures('switch_to_tmp_dir')
-    def test_21_create_with_credentials_path_and_without_import_url(self):
+    def test_22_create_with_credentials_path_and_without_import_url(self):
         self.assertIn(output_messages['INFO_INITIALIZED_PROJECT_IN'] % self.tmp_dir, check_output(MLGIT_INIT))
         self.assertIn(output_messages['WARN_USELESS_OPTION'].format('credentials-path', 'import-url'),
                       check_output(MLGIT_CREATE % (DATASETS, DATASET_NAME) + ' --credentials-path=test'
                                                                              ' --categories=imgs --mutability=' + STRICT))
         folder_data = os.path.join(self.tmp_dir, DATASETS, DATASET_NAME, 'data')
         self.assertTrue(os.path.exists(folder_data))
+
