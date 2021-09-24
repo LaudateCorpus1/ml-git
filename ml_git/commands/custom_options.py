@@ -55,7 +55,7 @@ class OptionRequiredIf(Option):
             raise MissingParameter(ctx=ctx, param=self, message=msg)
         elif using_required_option and not using_dependent_options:
             option_name = self.name.replace('_', '-')
-            log.warn(output_messages['WARN_USELESS_OPTION'].format(option_name, ', '.join(self.required_option), option_name))
+            log.warn(output_messages['WARN_USELESS_OPTION'].format(option_name, ', '.join(self.required_option)))
         return super(OptionRequiredIf, self).handle_parse_result(ctx, opts, args)
 
 

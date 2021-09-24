@@ -328,6 +328,5 @@ output_messages = {
     'WARN_NOT_FOUND': '[%s] Not found!',
     'WARN_FILE_EXISTS_IN_REPOSITORY': 'The file %s already exists in the repository. If you commit, the file will be overwritten.',
     'WARN_REPOSITORY_NOT_FOUND_FOR_ENTITY': 'No repositories found for %s, verify your configurations!',
-    'WARN_USELESS_OPTION': 'The option `{}` only is required if `{}` is used. The command will continue without a '
-                           'problem, but the `{}` will not be used. '
+    'WARN_USELESS_OPTION': 'Ignoring option `--{}` because it is only needed when using `--{}` option.'
 }

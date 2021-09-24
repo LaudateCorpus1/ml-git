@@ -281,3 +281,12 @@ class CreateAcceptanceTests(unittest.TestCase):
                                                                              ' --categories=imgs --mutability=' + STRICT))
         folder_data = os.path.join(self.tmp_dir, DATASETS, DATASET_NAME, 'data')
         self.assertFalse(os.path.exists(folder_data))
+
+    @pytest.mark.usefixtures('switch_to_tmp_dir')
+    def test_21_create_with_credentials_path_and_without_import_url(self):
+        self.assertIn(output_messages['INFO_INITIALIZED_PROJECT_IN'] % self.tmp_dir, check_output(MLGIT_INIT))
+        self.assertIn(output_messages['WARN_USELESS_OPTION'].format('credentials-path', 'import-url'),
+                      check_output(MLGIT_CREATE % (DATASETS, DATASET_NAME) + ' --credentials-path=test'
+                                                                             ' --categories=imgs --mutability=' + STRICT))
+        folder_data = os.path.join(self.tmp_dir, DATASETS, DATASET_NAME, 'data')
+        self.assertTrue(os.path.exists(folder_data))
